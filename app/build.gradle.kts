@@ -7,6 +7,19 @@ plugins {
     application
 }
 
+repositories {
+    mavenCentral()
+}
+
+
+val exposedVersion: String by project
+dependencies {
+    implementation("org.xerial:sqlite-jdbc:3.51.0.0")
+
+    implementation("org.jetbrains.exposed:exposed-core:$exposedVersion")
+    implementation("org.jetbrains.exposed:exposed-jdbc:$exposedVersion")
+}
+
 dependencies {
     // Project "app" depends on project "utils". (Project paths are separated with ":", so ":utils" refers to the top-level "utils" project.)
     implementation(project(":utils"))
